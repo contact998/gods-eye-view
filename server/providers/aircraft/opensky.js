@@ -441,7 +441,9 @@ export function openSkyProxy() {
           )
             return;
           res.writeHead(200, { 'Content-Type': 'application/json' });
-          res.end(JSON.stringify({ time: Math.floor(Date.now() / 1000), states: [] }));
+          res.end(
+            JSON.stringify({ time: Math.floor(Date.now() / 1000), states: [] }),
+          );
           return;
         }
         const now = Date.now();

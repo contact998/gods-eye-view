@@ -29,8 +29,17 @@
        names a glyph this list is missing, because a missing glyph does not draw
        a box — the ligature never forms and the element renders the literal word. -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0&icon_names=adjust,arrow_drop_down,arrow_forward,arrow_left,arrow_right,bolt,chevron_left,chevron_right,close,close_fullscreen,dark_mode,draw,east,flare,flight,layers_clear,light_mode,local_fire_department,my_location,navigation,normal,on,open_in_full,public,radar,radio,right_panel_close,right_panel_open,rocket_launch,skip_next,skip_previous,upload_file,view_in_ar,visibility,visibility_off" rel="stylesheet" />
+  <style>
+    /* Hallucine: logo and way back to the site, under the God's Eye View brand. */
+    #hallucine-retour { position: fixed; top: 118px; left: 40px; z-index: 40; display: flex; align-items: center; gap: 10px; padding: 6px 14px 6px 6px; border: 1px solid rgba(245, 184, 61, 0.45); border-radius: 999px; background: rgba(10, 10, 15, 0.72); color: #f5b83d; font: 500 12px/1 'JetBrains Mono', monospace; letter-spacing: 0.12em; text-decoration: none; text-transform: uppercase; backdrop-filter: blur(6px); }
+    #hallucine-retour:hover { background: rgba(245, 184, 61, 0.14); }
+    #hallucine-retour img { height: 32px; width: auto; }
+    @media (max-width: 640px) { #hallucine-retour { top: 84px; left: 12px; } #hallucine-retour span { display: none; } #hallucine-retour { padding: 4px; } }
+  </style>
 </head>
 <body>
+  <a id="hallucine-retour" href="https://hallucinecran.fr" title="Hallucine — retour au site"><img src="/hallucine-logo.webp" alt="Hallucine" /><span>← hallucinecran</span></a>
+  <script src="/hallucine-retour.js"></script>
   <!-- gev:template scene-chrome -->
 
   <!-- gev:template cockpit -->
