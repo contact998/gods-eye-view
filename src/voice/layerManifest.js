@@ -374,6 +374,12 @@ const layers = [
     },
   },
   {
+    id: 'hallucine-seances',
+    aliases: ['open-air cinema', 'outdoor cinema', 'screenings', 'hallucine'],
+    context: false,
+    noQuery: 'screening records are not loaded for queries',
+  },
+  {
     id: 'local-dams',
     aliases: ['dams'],
     context: true,

@@ -30,6 +30,7 @@ export function parseGeojsonLines(text) {
 export function layerTitle(layerId) {
   if (layerId === 'local-datacenters') return 'Datacenter';
   if (layerId === 'local-dams') return 'Dam';
+  if (layerId === 'hallucine-seances') return 'Screening';
   return 'Feature';
 }
 

@@ -75,6 +75,12 @@ export function localInfrastructureOverlayCopy(properties, layerId) {
       )
       .join(' · ');
     if (line) details.push(clampCardLine(line));
+  } else if (layerId === 'hallucine-seances') {
+    // The server pre-builds language-neutral lines (count, next screening).
+    for (const line of Array.isArray(props.details) ? props.details : []) {
+      const clean = firstClean([line]);
+      if (clean) details.push(clampCardLine(clean));
+    }
   } else if (layerId === 'local-dams') {
     const river = firstClean([
       tags.associated_river,

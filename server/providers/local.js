@@ -1,4 +1,5 @@
 import { openSkyProxy } from './aircraft/opensky.js';
+import { hallucineSeancesProxy } from './hallucine/seances.js';
 import { celestrakProxy, rocketLaunchesProxy } from './space.js';
 import { tomtomProxy } from './traffic.js';
 import { firmsProxy } from './firms.js';
@@ -36,6 +37,7 @@ import { windProxy } from './wind.js';
 function localProviderPlugins({ realtime, gemini } = {}) {
   return [
     openSkyProxy(),
+    hallucineSeancesProxy({ sourceRoot: defaultSourceRoot }),
     celestrakProxy(),
     tomtomProxy(),
     firmsProxy(),

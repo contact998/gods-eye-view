@@ -68,6 +68,7 @@ const PANEL_GROUPS = [
   {
     label: msg('Events'),
     ids: [
+      'hallucine-seances',
       'rocket-launches',
       'earthquakes',
       'local-firms',

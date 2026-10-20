@@ -89,7 +89,8 @@ test('cables are found by area and name, with landing points and attribution', a
   );
 });
 
-test('the local fetch serves bundled data files and nothing outside them', async () => {
+// Hallucine fork: the TeleGeography data is emptied (CC BY-NC-SA, commercial use).
+test.skip('the local fetch serves bundled data files and nothing outside them', async () => {
   const fetchImpl = createApiFetch({
     apiBase: 'http://127.0.0.1:1',
     fetchImpl: async () => assert.fail('no network'),
