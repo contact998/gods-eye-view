@@ -79,6 +79,12 @@ export function trackBackfillProxies() {
           );
           return;
         }
+        if (process.env.GEV_FLIGHTS_SOURCE === 'adsblol') {
+          res.statusCode = 404;
+          res.setHeader('Content-Type', 'application/json');
+          res.end(JSON.stringify({ error: 'OpenSky tracks disabled' }));
+          return;
+        }
         const token = await getOpenSkyToken();
         await proxyJson(
           res,

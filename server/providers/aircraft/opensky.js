@@ -427,6 +427,23 @@ export function openSkyProxy() {
         const requestedMode = normalizeOpenSkyAuthMode(
           process.env.OPENSKY_AUTH_MODE,
         );
+        // Commercial deployments: OpenSky's licence is non-commercial, so an
+        // operator can serve flights from adsb.lol (ODbL) only.
+        if (process.env.GEV_FLIGHTS_SOURCE === 'adsblol') {
+          res.setHeader('X-Feed-Source', 'adsb.lol');
+          if (
+            await serveAdsbLolPointFallback(
+              req,
+              res,
+              requestedMode,
+              'opensky_disabled_by_operator',
+            )
+          )
+            return;
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ time: Math.floor(Date.now() / 1000), states: [] }));
+          return;
+        }
         const now = Date.now();
         const inCooldown = now < _openskyCooldownUntil;
         // Fresh-enough cache (adaptive TTL) OR any cache during a 429
