@@ -52,7 +52,9 @@ jobs:
 
       - name: Check published layer-token allocations
         if: github.event_name == 'pull_request'
-        run: npm run layer-token:check -- --base-ref origin/main
+        env:
+          LAYER_TOKEN_BASE_REF: ${{ github.base_ref }}
+        run: npm run layer-token:check -- --base-ref "origin/$LAYER_TOKEN_BASE_REF"
 
       - name: Run unit tests
         run: npm test
